@@ -1,0 +1,35 @@
+<!-- イベントの詳細な情報を表示するページ -->
+{% extends "base.html" %}
+{% block body %}
+<h1 class="title">イベント情報</h1>
+
+<h3>イベント名</h3>
+<p>{{ jsonPart["event_name"] }}</p>
+
+<h3>イベント概要</h3>
+<p>{{ jsonPart["description"] | safe }}</p>
+
+<h3>備考</h3>
+<p>{{ jsonPart["remarks"] | safe }}</p>
+
+<h3>場所</h3>
+<p>{{ jsonPart["event_place"] }}</p>
+<ul>
+    <li>URL:&nbsp;{{ jsonPart["event_place_url"] }}</li>
+    <li>住所:&nbsp;{{ jsonPart["address"] }}</li>
+    <li>メールアドレス:&nbsp;{{ jsonPart["mail_address"] }}</li>
+</ul>
+
+<h3>期間</h3>
+<p>{{ jsonPart["start_date"] }}&nbsp;〜&nbsp;{{ jsonPart["end_date"] }}</p>
+
+<h3>連絡先</h3>
+<p>{{ jsonPart["contact"] }}</p>
+<ul>
+    <li>TEL:&nbsp;{{ jsonPart["contact_phone_number"] }}</li>
+</ul>
+
+<h3>交通アクセス</h3>
+<p>{{ jsonPart["transportation"] }}</p>
+ 
+{% endblock %}

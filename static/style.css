@@ -1,0 +1,50 @@
+.test {
+	float: right;
+}
+
+li {
+  list-style: none;
+}
+
+.move {
+  height: 120px;
+  padding: 20px;
+  margin: 30px;
+  border-top: 2px solid #dee7ec;
+}
+
+.searchEngine{
+	padding: 20px;
+	margin: 30px;
+	text-align: center;
+}
+
+.backAndNext{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.pages{
+	text-align: center;
+	font-size: large;
+
+}
+
+.title{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.message{
+	padding: 20px;
+	font-size: large;
+}
+
+.apology{
+	font-size: xx-large;
+	color: red;
+	text-align: center;
+}
+
+table{
+	table-layout: fixed;
+}

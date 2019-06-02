@@ -1,0 +1,97 @@
+<!doctype html>
+<!-- 全てのページで共通の部分の設定 -->
+<title>福井県のイベント情報</title>
+<head>
+    <title>福井県のイベント情報</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+ 
+ <!-- ヘッダーの設定 -->
+<header>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+            <a href="/" class="navbar-brand d-flex align-items-center">
+                <strong>福井県のイベント情報</strong>
+            </a>
+        </div>
+    </div>
+</header>
+ 
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+    <!-- ページごとに違う部分の表示 -->
+    {% block body %}{% endblock %}
+</div>
+
+<!-- フッターの設定 -->
+<div class="move">
+    <ul>
+        <li><a href="/">全てのイベント情報を表示</a></li>
+        <li><a href="/ten/0">イベント情報を10件表示</a></li>
+        <li><a href="/thirty/0">イベント情報を30件表示</a></li>
+    </ul>
+</div>
+<div class="searchEngine">
+    <form method="post" action="/category">
+
+        <select name="category">
+            <option value="歴史">歴史</option>
+            <option value="文化・芸術">文化・芸術</option>
+            <option value="講座・セミナー">講座・セミナー</option>
+            <option value="こども">こども</option>
+            <option value="スポーツ">スポーツ</option>
+            <option value="自然・環境">自然・環境</option>
+            <option value="食・健康">食・健康</option>
+            <option value="音楽">音楽</option>
+            <option value="観光・祭り">観光・祭り</option>
+            <option value="その他">その他</option>
+        </select>
+
+        <input class="btn btn-primary" type="submit" value="カテゴリー検索する">
+
+    </form>
+
+</div>
+
+<div class="searchEngine">
+    <form action="/date" method="post">
+        <select name="year">
+            <option value="2019">2019年</option>
+            <option value="2020">2020年</option>
+        </select>
+        <select name="month">
+            {% for i in range(1, 13) %}
+            <option value="{{ i }}">{{ i }}月</option>
+            {% endfor %}
+        </select>
+        <select name="date">
+            {% for j in range(1, 32) %}
+            <option value="{{ j }}">{{ j }}日</option>
+            {% endfor %}
+        </select>
+        <input class="btn btn-primary" type="submit" value="日付で検索する">
+    </form>
+</div>
+
+<div class="searchEngine">
+    <form action="/search" method="post">
+        <input type="text" size="30" name="keyword">
+        <input class="btn btn-primary" type="submit" value="キーワード検索する">
+    </form>
+</div>
+</body>
+</html>

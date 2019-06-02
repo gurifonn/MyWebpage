@@ -1,0 +1,19 @@
+<!-- 入力された日付が存在しない日付の時に表示するページ -->
+{% extends "base.html" %}
+{% block body %}
+<h1 class="title">イベント一覧</h1>
+<h2 class="title">検索ワード:{{ year }}-{{ month }}-{{ date }}</h2>
+<h3 class="title">検索結果:0件表示</h3>
+
+<div class="message">「{{ year }}-{{ month }}-{{ date }}」に当てはまる検索結果は見つかりませんでした</div>
+
+<br>
+
+<div class="apology">
+    「{{ year }}年{{ month }}月{{ date }}日」は存在しないよφ(ﾟ∀ﾟ )
+    <br>
+    検索ワードを変えてもう一度検索してみてねd(⌒ー⌒)
+</div>
+
+ 
+{% endblock %}

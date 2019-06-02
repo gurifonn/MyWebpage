@@ -1,0 +1,26 @@
+<!--イベントの一覧を全件表示するページ-->
+{% extends "base.html" %}
+{% block body %}
+<h1 class="title">イベント一覧</h1>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>イベント名</th>
+        <th>場所</th>
+        <th>期間</th>
+        <th>カテゴリー</th>
+    </tr>
+
+    {% for json in jsonDict %}
+    <tr>
+        <td><a href="/details/{{ json['key'] }}">{{ json["event_name"] }}</a></td>
+        <td>{{ json["event_place"] }}</td>
+        <td>{{ json["start_date"] }}&nbsp;〜&nbsp;{{ json["end_date"] }}</td>
+        <td>{{ json["category"] }}</td>
+    </tr>
+
+    {% endfor %}
+ 
+</table>
+
+ 
+{% endblock %}
