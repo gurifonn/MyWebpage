@@ -15,3 +15,7 @@
 - 実行ファイル: run.py
 - `python3 run.py` でサーバーが起動
 - サーバー起動後、`http://127.0.0.1:5000/` にアクセスするとWebページが表示される
+
+
+## 参考文献
+https://www.python.ambitious-engineer.com/archives/1640
